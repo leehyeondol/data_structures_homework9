@@ -46,23 +46,23 @@ int main()
 		scanf(" %c", &command);//커멘드 입력받음
 
 		switch(command) {//커멘드에 따라 선택됨
-		case 'z': case 'Z'://z면 
+		case 'z': case 'Z'://z이거나 Z이면 
 			initializeBST(&head);//이진탐색트리 초기화
 			break;
-		case 'q': case 'Q'://q면 
+		case 'q': case 'Q'://q거나 Q이면 
 			freeBST(head);//메모리 초기화
 			break;
-		case 'n': case 'N'://n면 
+		case 'n': case 'N'://n이거나 N이면 
 			printf("Your Key = ");
 			scanf("%d", &key);//키를 입력받고
 			insert(head, key);//키 입력
 			break;
-		case 'd': case 'D'://d면 
+		case 'd': case 'D'://d거나 D이면 
 			printf("Your Key = ");
 			scanf("%d", &key);//키를 입력받고
 			deleteLeafNode(head, key);//노드 삭제
 			break;
-		case 'f': case 'F'://f면 
+		case 'f': case 'F'://f이거나 F이면 
 			printf("Your Key = ");
 			scanf("%d", &key);//키를 입력 받고
 			ptr = searchIterative(head, key);//ptr에 Iteratively 방식으로 노드 검색하여 입력
@@ -71,7 +71,7 @@ int main()
 			else//못찻았으면 입력한 키를 못찾음을 출력
 				printf("\n Cannot find the node [%d]\n", key);
 			break;
-		case 's': case 'S'://s면 
+		case 's': case 'S'://s이거나 S이면 
 			printf("Your Key = ");
 			scanf("%d", &key);//키를 입력받고
 			ptr = searchRecursive(head->left, key);//ptr에 Recursive 방식으로 노드 검색하여 입력
@@ -81,16 +81,16 @@ int main()
 				printf("\n Cannot find the node [%d]\n", key);//입력받은 키를 못찾음을 출력
 			break;
 
-		case 'i': case 'I'://i면 
+		case 'i': case 'I'://i이거나 I이면 
 			inorderTraversal(head->left);//inorder 방식으로 순회
 			break;
-		case 'p': case 'P'://p면 
+		case 'p': case 'P'://p이거나 P이면 
 			preorderTraversal(head->left);//preorder방식으로 순회
 			break;
-		case 't': case 'T'://t면 
+		case 't': case 'T'://t이거나 T이면 
 			postorderTraversal(head->left);//postorder 방식으로 순회
 			break;
-		default://커멘드가 전부 아니면
+		default://해당 되는 command가 없으면
 			printf("\n       >>>>>   Concentration!!   <<<<<     \n");//Concentration 출력
 			break;
 		}
