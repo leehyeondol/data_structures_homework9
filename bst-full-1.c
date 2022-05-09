@@ -9,7 +9,6 @@ typedef struct node {//노드 구조체 생성
 
 int initializeBST(Node** h);//노드 초기화 함수
 
-/* functions that you have to implement */
 void inorderTraversal(Node* ptr);//inorder방식 순회 함수
 void preorderTraversal(Node* ptr);//preorder 방식 순회 함수
 void postorderTraversal(Node* ptr);// postorder 방식 순회 함수
@@ -19,16 +18,13 @@ Node* searchRecursive(Node* ptr, int key);//Recursive 방식 노드 찾기 함�
 Node* searchIterative(Node* head, int key);//Iterative 방식 노드 찾기 함수
 int freeBST(Node* head);//메모리 초기화 함수
 
-/* you may add your own defined functions if necessary */
-
-
 int main()
 {
 	printf("[----- [Lee hyeondo]  [2019038085] -----]\n");//이름 학번 출력
 	char command;//커멘드 변수
 	int key;//입력받을 키 변수
 	Node* head = NULL;//헤드라는 이름의 노드 초기화
-	Node* ptr = NULL;// ptr이라는 노드 초기화	/* temp */
+	Node* ptr = NULL;// ptr이라는 노드 초기화
 
 	do{//while의 조건에 따라 다시 반복
 		printf("\n\n");//메뉴 출력
@@ -156,7 +152,6 @@ int insert(Node* head, int key)//입력 함수
 		return 1;//리턴
 	}
 
-	/* head->left is the root */
 	Node* ptr = head->left;//ptr은 헤드의 왼쪽노드
 
 	Node* parentNode = NULL;//부모노드는 0
@@ -193,21 +188,14 @@ int deleteLeafNode(Node* head, int key)//노드 삭제 함수
 
 	Node* ptr = head->left;//노드 ptr에 헤드노드의 왼쪽 노드 입력
 
-
-	/* we have to move onto children nodes,
-	 * keep tracking the parent using parentNode */
 	Node* parentNode = head;//부모노드에 헤드노드 입력
 
 	while(ptr != NULL) {//ptr이 0인동안 반복
 
 		if(ptr->key == key) {//ptr의 키가 입력받은 키이면
 			if(ptr->left == NULL && ptr->right == NULL) {//ptr의 왼쪽은 0이고 오른쪽도 0이면
-
-				/* root node case */
 				if(parentNode == head)//부모노드가 헤드노드이면
 					head->left = NULL;//헤드의 왼쪽노드는 0
-
-				/* left node case or right case*/
 				if(parentNode->left == ptr)//부모노드의 왼쪽노드가 ptr이면
 					parentNode->left = NULL;//부모노드의 왼쪽 노드는 0
 				else//아니면
@@ -220,14 +208,8 @@ int deleteLeafNode(Node* head, int key)//노드 삭제 함수
 			}
 			return 1;
 		}
-
-		/* keep the parent node */
 		parentNode = ptr;//부모노드에 ptr입력
 
-		/* key comparison, if current node's key is greater than input key
-		 * then the new node has to be inserted into the right subtree;
-		 * otherwise the left subtree.
-		 */
 		if(ptr->key < key)//ptr의 키가 입력받은 키보다 작으면
 			ptr = ptr->right;//ptr은 오른쪽 노드로 이동
 		else//아니면
@@ -256,7 +238,6 @@ Node* searchRecursive(Node* ptr, int key)//Recursive방식으로 노드 찾기�
 }
 Node* searchIterative(Node* head, int key)//Iterative 방식 노드 찾기 함수
 {
-	/* root node */
 	Node* ptr = head->left;//ptr에 헤드노드의 왼쪽 입력
 
 	while(ptr != NULL)//ptr이 0이 아닌동안
@@ -280,7 +261,6 @@ void freeNode(Node* ptr)//노드 메모리 해제 함수
 		free(ptr);//ptr 메모리 해제
 	}
 }
-
 int freeBST(Node* head)//이진탐색트리 메모리 해제 함수
 {
 
