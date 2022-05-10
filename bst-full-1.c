@@ -23,7 +23,7 @@ int main()
 	printf("[----- [Lee hyeondo]  [2019038085] -----]\n");//이름 학번 출력
 	char command;//커멘드 변수
 	int key;//입력받을 키 변수
-	Node* head = NULL;//헤드라는 이름의 노드 초기화
+	Node* h = NULL;//헤드라는 이름의 노드 초기화
 	Node* ptr = NULL;// ptr이라는 노드 초기화
 
 	do{//while의 조건에 따라 다시 반복
@@ -43,25 +43,25 @@ int main()
 
 		switch(command) {//커멘드에 따라 선택됨
 		case 'z': case 'Z'://z이거나 Z이면 
-			initializeBST(&head);//이진탐색트리 초기화
+			initializeBST(&h);//이진탐색트리 초기화
 			break;
 		case 'q': case 'Q'://q거나 Q이면 
-			freeBST(head);//메모리 초기화
+			freeBST(h);//메모리 초기화
 			break;
 		case 'n': case 'N'://n이거나 N이면 
 			printf("Your Key = ");
 			scanf("%d", &key);//키를 입력받고
-			insert(head, key);//키 입력
+			insert(h, key);//키 입력
 			break;
 		case 'd': case 'D'://d거나 D이면 
 			printf("Your Key = ");
 			scanf("%d", &key);//키를 입력받고
-			deleteLeafNode(head, key);//노드 삭제
+			deleteLeafNode(h, key);//노드 삭제
 			break;
 		case 'f': case 'F'://f이거나 F이면 
 			printf("Your Key = ");
 			scanf("%d", &key);//키를 입력 받고
-			ptr = searchIterative(head, key);//ptr에 Iteratively 방식으로 노드 검색하여 입력
+			ptr = searchIterative(h, key);//ptr에 Iteratively 방식으로 노드 검색하여 입력
 			if(ptr != NULL)//검색한 노드를 찾았으면
 				printf("\n node [%d] found at %p\n", ptr->key, ptr);// 노드의 키 값과 주소 출력
 			else//못찻았으면 입력한 키를 못찾음을 출력
@@ -70,7 +70,7 @@ int main()
 		case 's': case 'S'://s이거나 S이면 
 			printf("Your Key = ");
 			scanf("%d", &key);//키를 입력받고
-			ptr = searchRecursive(head->left, key);//ptr에 Recursive 방식으로 노드 검색하여 입력
+			ptr = searchRecursive(h->left, key);//ptr에 Recursive 방식으로 노드 검색하여 입력
 			if(ptr != NULL)//찾았으면
 				printf("\n node [%d] found at %p\n", ptr->key, ptr);//찾은 키 값과 주소 출력
 			else//못찾았으면
@@ -78,13 +78,13 @@ int main()
 			break;
 
 		case 'i': case 'I'://i이거나 I이면 
-			inorderTraversal(head->left);//inorder 방식으로 순회
+			inorderTraversal(h->left);//inorder 방식으로 순회
 			break;
 		case 'p': case 'P'://p이거나 P이면 
-			preorderTraversal(head->left);//preorder방식으로 순회
+			preorderTraversal(h->left);//preorder방식으로 순회
 			break;
 		case 't': case 'T'://t이거나 T이면 
-			postorderTraversal(head->left);//postorder 방식으로 순회
+			postorderTraversal(h->left);//postorder 방식으로 순회
 			break;
 		default://해당 되는 command가 없으면
 			printf("\n       >>>>>   Concentration!!   <<<<<     \n");//Concentration 출력
